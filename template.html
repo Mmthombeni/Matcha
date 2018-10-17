@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+            <meta charest="UTF-8">
+            <title>MATCHA | Home Page</title>
+
+            <link rel="stylesheet" href="bootstrap.min.css" type="text/css">
+            <link rel="stylesheet" href="cam.css" type="text/css" media="all">
+            
+    </head>
+    <body>
+        <nav class="nav_bar">
+            <div class="left">
+                <h4>MATCHA</h4>
+            </div>
+            <div class="right">
+            <ul>
+                <li><a class="active" href="#home">login: <?php if (isset($_SESSION['username'])) echo $_SESSION['username']; else echo "username"; ?></a></li>
+                <li><a href="signout.php">logout</a></li>
+            </ul>
+            </div>
+        </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                main
+
+                <form action="update.php" method="post">
+                        <?php
+                        if ($status)
+                            echo $status."<br/>";
+                        ?>
+                        Gender:<br />
+                            <input name="gender" value="<?php if(isset($userdata["Gender"])) echo $userdata["Gender"]; ?>" required/><br />
+                        Age:<br />
+                            <input name="age" value="<?php if(isset($userdata["Age"])) echo $userdata["Age"]; ?>" required/><br />
+                        Sexual Preference:<br />
+                            <input name="pref" value="<?php if(isset($userdata["Preference"])) echo $userdata["Preference"]; ?>" required/><br />
+                        Update Your Interests:<br />
+                            <input name="interest" value="" required><br />
+                        Bio:<br />
+                            <input name="bio" value="<?php if(isset($userdata["Bio"])) echo $userdata["Bio"]; ?>" required/><br />
+                        <input type="submit" name="submit" value="OK" id="register"/>
+                    </form>
+    
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                sidebar
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+            footer
+        </div>
+    </nav>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <footer>
+            <i>&copy; mmthombe</i>
+                Matcha
+    </footer>
+</body>
+</html>
